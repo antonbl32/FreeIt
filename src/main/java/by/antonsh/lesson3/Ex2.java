@@ -7,6 +7,6 @@ public class Ex2 {
             times *=2;
             System.out.println("Будет "+times+" амеб через "+i+" часов");
         }
-        
+
     }
 }
