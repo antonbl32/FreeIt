@@ -1,5 +1,8 @@
 package by.antonsh.project;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Genre")
 public enum Genre {
     ACTION("Action and adventure"),
     BUSINESS("Bussiness type"),
@@ -10,6 +13,9 @@ public enum Genre {
 
     Genre(String description) {
         this.description = description;
+    }
+
+    Genre() {
     }
 
     public String getDescription() {

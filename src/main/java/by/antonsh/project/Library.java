@@ -13,12 +13,12 @@ public class Library {
 
     public static void main(String[] args) {
         Books books=new Books();
-        createBook(books.getBooks());
+        createBook((ArrayList<Book>) books.getBooks());
         saveMyLibrary(books);
         System.out.println(books.getBooks());
         books.getBooks().clear();
-        getMyLibrary(books.setBooks(););
-        System.out.println(lib.myLibrary);
+        getMyLibrary(books);
+        System.out.println(books.getBooks());
 
 
     }
@@ -35,7 +35,7 @@ public class Library {
     public static void saveMyLibrary(Books library){
         JAXBContext jaxbContext = null;
         try {
-            jaxbContext = JAXBContext.newInstance(Book.class);
+            jaxbContext = JAXBContext.newInstance(Books.class);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -75,8 +75,8 @@ public class Library {
 
 
     }
-    public static void createBook(Books library){
+    public static void createBook(ArrayList<Book> books){
         Book book=new Book("Три танкиста и собака",1991,new Author("Котеригин","Василий"),Genre.ACTION);
-        library.getBooks().add(book);
+        books.add(book);
     }
 }

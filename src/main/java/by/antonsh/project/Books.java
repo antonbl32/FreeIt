@@ -1,16 +1,18 @@
 package by.antonsh.project;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement(name = "books")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Books {
+@XmlRootElement(name = "listbooks")
+@XmlSeeAlso({Book.class})
+public class Books implements Serializable {
 
-    private List<Book> books=null;
+    private List<Book> books=new ArrayList<>();
 
+    @XmlElementWrapper(name="books")
+    @XmlElementRef()
     public List<Book> getBooks() {
         return books;
     }

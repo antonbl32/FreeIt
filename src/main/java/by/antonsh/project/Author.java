@@ -1,8 +1,14 @@
 package by.antonsh.project;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Author")
 public class Author {
     private String soname;
     private String name;
+
+    public Author() {
+    }
 
     public Author(String soname, String name) {
         this.soname = soname;
@@ -23,5 +29,13 @@ public class Author {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "soname='" + soname + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

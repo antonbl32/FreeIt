@@ -3,14 +3,11 @@ package by.antonsh.project;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Objects;
 @XmlRootElement(name = "book")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Book  {
+public class Book implements Serializable {
     public Book() {
     }
 
