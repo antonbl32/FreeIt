@@ -25,12 +25,48 @@ public class Tictactoe {
                         for (int j = 0; j <3 ; ++j) {
                             filed[i][j]=FILED_EMPTY;
 
+
                         }
 
                     }
                     isXturn=true;
                 }
+                int checkState(){
+                    int diag=0;
+                    int diag2=0;
+                    for (int i = 0; i <3 ; i++) {
+                        diag+=filed[i][i];
+                        diag2+=filed[i][2-i];
+                    }
+                    if(diag==FILED_0*3||diag==FILED_X*3)
+                        return diag;
+                    if(diag2==FILED_0*3 || diag2==FILED_X*3)
+                        return diag2;
 
+                    boolean hasEmpty=false;
+                    for (int i = 0; i < 3; i++) {
+                        int check_i=0;
+                        int check_j=0;
+                        for (int j = 0; j < 3; j++) {
+                            if(filed[i][j]==0){
+                                hasEmpty=true;
+                            }
+                            check_i+=filed[i][j];
+                            check_j+=filed[j][i];
+
+                        }
+                        if(check_i==FILED_0*3||check_i==FILED_X*3){
+                            return check_i;
+                        }else if(check_j==FILED_0*3||check_j==FILED_X*3){
+                            return check_j;
+                        }
+
+                    }
+                    if(hasEmpty)
+                        return 0;
+                    else return -1;
+
+                }
                 @Override
                 protected void processMouseEvent(MouseEvent e) {
                     super.processMouseEvent(e);
@@ -43,6 +79,16 @@ public class Tictactoe {
                             filed[i][j]=isXturn?FILED_X:FILED_0;
                             isXturn=!isXturn;
                             repaint();
+                            int res= checkState();
+                            if(res!=0){
+                                if(res==FILED_0*3){
+                                    JOptionPane.showMessageDialog(this,"Нолики WIN","Победа",JOptionPane.INFORMATION_MESSAGE);
+                                }else if(res==FILED_X*3){
+                                    JOptionPane.showMessageDialog(this,"Крестики WIN","Победа",JOptionPane.INFORMATION_MESSAGE);
+                                }else{
+                                    JOptionPane.showMessageDialog(this,"Ничья","Ничья",JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
                         }
                     }
 
@@ -121,7 +167,7 @@ public class Tictactoe {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Game Over");
+
 
 
     }
