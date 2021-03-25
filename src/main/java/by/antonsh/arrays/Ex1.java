@@ -14,5 +14,6 @@ public class Ex1 {
         System.out.println();
         System.out.println("-------------------------");
         Arrays.stream(randomArray).forEach(System.out::println);
+
     }
 }
