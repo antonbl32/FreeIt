@@ -9,19 +9,19 @@ public class Tictactoe {
         System.out.println("Game Run");
         Thread th1=new Thread(new Runnable() {
             class Tic extends JComponent{
-                public static final int FILED_EMPTY=0;
-                public static final int FILED_X=10;
-                public static final int FILED_0=200;
-                int[][] filed;
-                boolean isXturn;
+                public static final int FILED_EMPTY=0; //flag empty
+                public static final int FILED_X=10;//flag X
+                public static final int FILED_0=200;//flag O
+                int[][] filed;//massive with data
+                boolean isXturn;//чей ход
                 public Tic() {
-                    enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+                    enableEvents(AWTEvent.MOUSE_EVENT_MASK);//listener mouse events
                     filed=new int[3][3];
                     initGame();
                 }
 
                 private void initGame() {
-                    for (int i = 0; i < 3; ++i) {
+                    for (int i = 0; i < 3; ++i) {//fill massive by empty values
                         for (int j = 0; j <3 ; ++j) {
                             filed[i][j]=FILED_EMPTY;
 
@@ -154,7 +154,7 @@ public class Tictactoe {
             public void run() {
                 JFrame window=new JFrame("Tictactoe");
                 window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                window.setSize(400,400);
+                window.setSize(450,450);
                 window.setLayout(new BorderLayout());
                 window.setLocationRelativeTo(null);
                 window.setVisible(true);
