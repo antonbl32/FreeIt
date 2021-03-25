@@ -83,7 +83,7 @@ public class Tictactoe {
                             if(res!=0){
                                 if(res==FILED_0*3){
                                     JOptionPane.showMessageDialog(this,"Нолики WIN","Победа",JOptionPane.INFORMATION_MESSAGE);
-                                    System.exit(0);
+
                                 }else if(res==FILED_X*3){
                                     JOptionPane.showMessageDialog(this,"Крестики WIN","Победа",JOptionPane.INFORMATION_MESSAGE);
                                     System.exit(0);
@@ -100,9 +100,6 @@ public class Tictactoe {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-//                    g.setColor(Color.RED);
-//                    g.clearRect(0,0,getWidth(),getHeight());
-//                    g.drawOval(10,10,100,100);
                     drawGrid(g);
                     drawXO(g);
 
@@ -165,11 +162,7 @@ public class Tictactoe {
         });
         th1.start();
 
-        try {
-            th1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
 
 
