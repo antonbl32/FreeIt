@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Ex4 {
     public static void main(String[] args) {
-        int[] array=new int[20];
+        int[] array;
         Random random=new Random();
         array=random.ints(20,0,20).toArray();
         System.out.println(Arrays.toString(array));
