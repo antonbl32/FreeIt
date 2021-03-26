@@ -2,7 +2,11 @@ package by.antonsh.arrays;
 
 import java.util.Arrays;
 import java.util.Random;
-
+/*
+Создайте массив из 4 случайных целых чисел из отрезка [0;10], выведите его
+на экран в строку. Определить и вывести на экран сообщение о том, является ли
+массив строго возрастающей последовательностью.
+ */
 public class Ex6 {
     public static void main(String[] args) {
         int[] array;

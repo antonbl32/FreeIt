@@ -3,7 +3,11 @@ package by.antonsh.arrays;
 import java.util.Arrays;
 import java.util.OptionalInt;
 import java.util.Random;
-
+/*
+Создайте массив из 12 случайных целых чисел из отрезка [0;15]. Определите
+какой элемент является в этом массиве максимальным и сообщите индекс его
+последнего вхождения в массив.
+ */
 public class Ex7 {
     public static void main(String[] args) {
         int[] array;
