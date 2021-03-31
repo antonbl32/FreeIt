@@ -3,6 +3,8 @@ package by.antonsh.arrays;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.stream.Stream;
+
 /*
 Создайте массив из всех нечётных чисел от 1 до 99, выведите его на экран в
 строку, а затем этот же массив выведите на экран тоже в строку, но в обратном
@@ -10,18 +12,13 @@ import java.util.Comparator;
  */
 public class Ex2 {
     public static void main(String[] args) {
-        // For use Arrays.sort need Integer object, not primitives
-        Integer[] array = new Integer[50];
-        int key = 0;
-        for (int i = 1; i < 100; i++) {
-            if (i % 2 != 0) {
-                array[key] = i;
-                key++;
-            }
-
-        }
-        System.out.println(Arrays.toString(array));
-        Arrays.sort(array, Comparator.reverseOrder());
-        System.out.println(Arrays.toString(array));
+        int[] noEvenArray = Stream.iterate(1, a -> a + 1)
+                .limit(99).filter(a -> a != 0 && a % 2 > 0)
+                .mapToInt(n -> n).toArray();
+        System.out.println(Arrays.toString(noEvenArray));
+        int[] reverseArray = Arrays.stream(noEvenArray).boxed()
+                .sorted(Collections.reverseOrder())
+                .mapToInt(Integer::intValue).toArray();
+        System.out.println(Arrays.toString(reverseArray));
     }
 }

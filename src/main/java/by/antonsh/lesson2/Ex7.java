@@ -14,10 +14,14 @@ public class Ex7 {
         Scanner sc=new Scanner(System.in);
         int prog=sc.nextInt();
         int prog2=prog%10;
+        if(prog>10 && prog<20){
+            System.out.println(prog+" - программист"+text[2]);
+            System.exit(0);
+        }
         if(prog2==1){
             System.out.println(prog+" - программист"+text[0]);
             System.exit(0);
-        }else if(Arrays.binarySearch(withOf,prog2)>=0){
+        }else if(Arrays.binarySearch(withOf,prog2)>=0 ){
             System.out.println(prog+" - программист"+text[2]);
             System.exit(0);
         }else if(Arrays.binarySearch(withA,prog2)>=0){

@@ -3,6 +3,7 @@ package by.antonsh.arrays;
 import java.util.Arrays;
 import java.util.OptionalDouble;
 import java.util.Random;
+
 /*
 Создайте 2 массива из 5 случайных целых чисел из отрезка [0;15] каждый,
 выведите массивы на экран в двух отдельных строках. Посчитайте среднее
@@ -27,16 +28,16 @@ public class Ex5 {
         }
         OptionalDouble averageArraySecond = Arrays.stream(arraySecond).average();
         if (averageArraySecond.isPresent()) {
-            System.out.println("Среднее арифмитическое первого массива " + averageArraySecond.getAsDouble());
+            System.out.println("Среднее арифмитическое второго массива " + averageArraySecond.getAsDouble());
         } else {
             System.out.println("Пустой массив");
         }
         if (averageArrayFirst.getAsDouble() > averageArraySecond.getAsDouble()) {
-            System.out.println("Больше первый массив");
+            System.out.println("Среднее арифметическое первого массива больше");
         } else if (averageArrayFirst.getAsDouble() < averageArraySecond.getAsDouble()) {
-            System.out.println("Больше второй массив");
+            System.out.println("Среднее арифметическое второго массива больше");
         } else {
-            System.out.println("Массивы равны");
+            System.out.println("Среднее арифметическое обоих массивов равны");
         }
     }
 }

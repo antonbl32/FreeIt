@@ -3,6 +3,7 @@ package by.antonsh.arrays;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 /*
 Пользователь вводит с клавиатуры число большее 3, которое сохраняется в
 переменную n. Если пользователь ввёл не подходящее число, то программа
@@ -27,22 +28,7 @@ public class Ex10 {
         Random random = new Random();
         array = random.ints(n, 0, n).toArray();
         System.out.println("Массив " + Arrays.toString(array));
-        int[] arrayResult;
-        if(n%2>0){
-            arrayResult = new int[array.length/2+1];
-        }else{
-            arrayResult = new int[array.length/2];
-        }
-
-        int count=0;
-        if(array.length>1){
-            for (int i = 0; i < array.length ; ++i) {
-                if(i%2!=0){
-                    arrayResult[count]=array[i];
-                    count++;
-                }
-            }
-        }
-        System.out.println(Arrays.toString(arrayResult));
+        int[] arrayOdd = Arrays.stream(array).filter(a -> a != 0 && a % 2 == 0).toArray();
+        System.out.println(Arrays.toString(arrayOdd));
     }
 }

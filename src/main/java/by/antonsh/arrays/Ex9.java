@@ -3,6 +3,7 @@ package by.antonsh.arrays;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
 /*
 Пользователь должен указать с клавиатуры положительное число, а
 программа должна создать массив указанного размера из случайных целых
@@ -22,7 +23,7 @@ public class Ex9 {
                 scanner.next();
             }
             length = scanner.nextInt();
-        } while (length <= 1);
+        } while (length < 1);
         int[] array;
         Random random = new Random();
         array = random.ints(length, 0, 15).toArray();
@@ -38,6 +39,5 @@ public class Ex9 {
         } else {
             System.out.println("Суммы массивов равны");
         }
-
     }
 }

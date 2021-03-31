@@ -10,7 +10,6 @@ import java.util.Arrays;
 
 public class Ex1 {
     public static void main(String[] args) {
-
         int[] randomArray = new int[10];
         for (int i = 0; i < 10; i++) {
             randomArray[i] = i * 2;
@@ -19,6 +18,5 @@ public class Ex1 {
         System.out.println();
         System.out.println("-------------------------");
         Arrays.stream(randomArray).forEach(System.out::println);
-
     }
 }

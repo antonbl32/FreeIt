@@ -2,6 +2,7 @@ package by.antonsh.arrays;
 
 import java.util.Arrays;
 import java.util.Random;
+
 /*
 Создайте два массива из 10 целых случайных чисел из отрезка [0;9] и третий
 массив из 10 действительных чисел. Каждый элемент с i-ым индексом третьего
@@ -34,5 +35,6 @@ public class Ex8 {
             }
         }
         System.out.println("Получился массив: " + Arrays.toString(arrayResult));
+        Arrays.stream(arrayResult).filter(a->Math.ceil(a)==a).forEach(System.out::println);
     }
 }

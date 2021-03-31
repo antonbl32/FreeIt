@@ -24,12 +24,16 @@ public class Ex1 {
         /*
         2) Найти среднее арифметическое элементов с нечетными номерами
          */
-        for (int i = 0; i < arrayInts.length; i++) {
-            if (arrayInts[i] % 3 == 0 && arrayInts[i]!=0) {
-                result*=arrayInts[i];
-            }
+        int secondResult=0;
+        int countN=0;
+        for (int i =0; i < arrayInts.length; i+=2) {
+                secondResult+=arrayInts[i];
+                System.out.print(" "+arrayInts[i]);
+                countN++;
+
         }
-        System.out.println(result);
+        System.out.println();
+        System.out.println((double) secondResult/countN);
 
     }
 }
