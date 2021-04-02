@@ -1,7 +1,6 @@
 package by.antonsh.string;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -27,19 +26,18 @@ public class Ex4 {
     public static void main(String[] args) throws IOException {
         String path = "D:/polydrom.txt";
         String pathOut = "D:/outPut.txt";
-        String text =new String( Files.readAllBytes(Paths.get(path)));
-        List<String> listOfSentences=new ArrayList<>();
+        String text = new String(Files.readAllBytes(Paths.get(path)));
+        List<String> listOfSentences = new ArrayList<>();
         listOfSentences.addAll(Arrays.stream(text.split("(?<=[.?!])")).collect(Collectors.toList()));
         System.out.println(listOfSentences);
 
 
-        StringBuilder resultToWrite=new StringBuilder();
+        StringBuilder resultToWrite = new StringBuilder();
         for (int i = 0; i < listOfSentences.size(); i++) {
 
             if (TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) >= 3
                     && TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) <= 5
                     || TextFormatter.isPolychrome(listOfSentences.get(i))) {
-                //resultToWrite.append(listOfSentences.get(i)+" ");
                 System.out.println(listOfSentences.get(i) + " ");
             }
         }
