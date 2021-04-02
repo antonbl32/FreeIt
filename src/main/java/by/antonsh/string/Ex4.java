@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 /*
 4)Текстовый файл содержит текст.
-После запуска программы в другой файлдолжны записаться только те предложения в которых от 3-х до 5-ти слов.
+После запуска программы в другой файл должны записаться только те предложения в которых от 3-х до 5-ти слов.
 Если в предложении присутствует слово-палиндром, то не имеет значения какое кол-во слов в предложении,
 оно попадает в новый файл.Пишем все в ООП стиле. Создаём класс TextFormater в котором два статических метода:
 1. Метод принимает строку и возвращает кол-во слов в строке.
@@ -33,19 +33,19 @@ public class Ex4 {
         System.out.println(listOfSentences);
 
 
-        System.out.println(array);
-
         StringBuilder resultToWrite=new StringBuilder();
         for (int i = 0; i < listOfSentences.size(); i++) {
 
             if (TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) >= 3
                     && TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) <= 5
                     || TextFormatter.isPolychrome(listOfSentences.get(i))) {
-                resultToWrite.append(listOfSentences.get(i)+".");
+                //resultToWrite.append(listOfSentences.get(i)+" ");
                 System.out.println(listOfSentences.get(i) + " ");
             }
         }
         Files.write(Paths.get(pathOut), Collections.singleton(resultToWrite), new StandardOpenOption[]{StandardOpenOption.CREATE});
+        System.out.println("---------------------------------------");
+        System.out.println(resultToWrite);
 
     }
 
@@ -55,7 +55,7 @@ public class Ex4 {
 
 class TextFormatter {
     public static int getNumberOfWordsInString(String str) {
-        String[] newStr = str.split(" ");
+        String[] newStr = str.trim().split(" ");
         return newStr.length;
     }
 
