@@ -10,9 +10,9 @@ public class Ex5 {
     public static void main(String[] args) {
         String text = "Если в предложении присутствует слово-палиндром," +
                 " то не имеет значения какое кол-во слов в предложении," +
-                "оно попадает в новый файл.Пишем все в ООП стиле. " +
+                "оно попадает в новый файл.Пишем все в \"ООП\" стиле. " +
                 "Создаём класс TextFormater в котором два статических метода:";
-        Pattern pattern=Pattern.compile("[?.,:!]");
+        Pattern pattern=Pattern.compile("[?.,:!\"']");
         Matcher matcher= pattern.matcher(text);
         int count=0;
         while(matcher.find()){
