@@ -13,7 +13,7 @@ public class Ex6 {
                 "Создаём класс TextFormater в котором два статических метода:";
         String[] textWithoutMarks=text.split("[?.,:\"]");
         // Выведу  2 последние буквы слов, содержащих более 2 букв
-        Arrays.stream(textWithoutMarks).filter(a->a.length()>2).forEach(a-> System.out.println(a.substring(a.length()-2,a.length())));
+        Arrays.stream(textWithoutMarks).filter(a->a.length()>2).forEach(a-> System.out.println(a.substring(a.length()-2)));
     }
 
 

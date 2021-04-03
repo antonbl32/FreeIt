@@ -17,6 +17,7 @@ public class Ex1 {
         for (int i = 0; i < arrayInts.length; i++) {
             if (arrayInts[i] % 3 == 0 && arrayInts[i]!=0) {
                 result*=arrayInts[i];
+
             }
         }
         System.out.println(result);
