@@ -1,6 +1,8 @@
 package by.antonsh.lesson7;
 
-import java.util.Random;
+import lombok.Data;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 import java.util.concurrent.ThreadLocalRandom;
 
 /*
@@ -9,66 +11,26 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Ex1 {
     public static void main(String[] args) {
         String[] brand = {"Audi", "Mercedes", "BMW", "Honda", "Ford"};
-        Random random = new Random();
-        Car car = new Car(ThreadLocalRandom.current().nextDouble(50, 200)
-                , ThreadLocalRandom.current().nextDouble(180, 250)
-                , ThreadLocalRandom.current().nextDouble(1500, 2000)
-                , brand[ThreadLocalRandom.current().nextInt(0, 4)]
-                , ThreadLocalRandom.current().nextInt(3, 6)
-                , ThreadLocalRandom.current().nextDouble(5, 20)
-                , ThreadLocalRandom.current().nextInt(2, 6));
+        Car car = Car.builder().numberOfPassengers(ThreadLocalRandom.current().nextInt(1, 8))
+                .brand(brand[ThreadLocalRandom.current().nextInt(0, 4)])
+                .gasMileage(ThreadLocalRandom.current().nextDouble(5, 20))
+                .maxSpeed(ThreadLocalRandom.current().nextDouble(120, 240))
+                .power(ThreadLocalRandom.current().nextDouble(80, 380))
+                .weight(ThreadLocalRandom.current().nextDouble(1500, 3100))
+                .wheels(ThreadLocalRandom.current().nextInt(3, 4))
+                .build();
         System.out.println(car);
-        car.getMealageTime(2.5);
+        car.getMealageTime(2.6);
     }
 }
 
+@Data
+@SuperBuilder
 class Machine {
     private double power;
     private double maxSpeed;
     private double weight;
     private String brand;
-
-    public Machine() {
-    }
-
-    public Machine(double power, double maxSpeed, double weight, String brand) {
-        this.power = power;
-        this.maxSpeed = maxSpeed;
-        this.weight = weight;
-        this.brand = brand;
-    }
-
-    public double getPower() {
-        return power;
-    }
-
-    public void setPower(double power) {
-        this.power = power;
-    }
-
-    public double getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(double maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
     private double convertHPToKW(double hp) {
         return hp * 0.74;
@@ -86,35 +48,11 @@ class Machine {
     }
 }
 
+@Data
+@SuperBuilder
 class LandTransport extends Machine {
     private int wheels;
     private double gasMileage;
-
-    public LandTransport() {
-    }
-
-    public LandTransport(double power, double maxSpeed, double weight, String brand, int wheels, double gasMileage) {
-        super(power, maxSpeed, weight, brand);
-        this.wheels = wheels;
-        this.gasMileage = gasMileage;
-    }
-
-    public int getWheels() {
-        return wheels;
-    }
-
-    public void setWheels(int wheels) {
-        this.wheels = wheels;
-    }
-
-    public double getGasMileage() {
-        return gasMileage;
-    }
-
-    public void setGasMileage(double gasMileage) {
-        this.gasMileage = gasMileage;
-    }
-
     @Override
     public String toString() {
         return "{" +
@@ -124,16 +62,10 @@ class LandTransport extends Machine {
     }
 }
 
+@Data
+@SuperBuilder
 class Car extends LandTransport {
     private int numberOfPassengers;
-
-    public Car() {
-    }
-
-    public Car(double power, double maxSpeed, double weight, String brand, int wheels, double gasMileage, int numberOfPassengers) {
-        super(power, maxSpeed, weight, brand, wheels, gasMileage);
-        this.numberOfPassengers = numberOfPassengers;
-    }
 
     @Override
     public String toString() {
@@ -157,9 +89,15 @@ class Car extends LandTransport {
 
 class Track extends LandTransport {
 
+    protected Track(LandTransportBuilder<?, ?> b) {
+        super(b);
+    }
 }
 
 class AirTransport extends Machine {
 
 
+    protected AirTransport(MachineBuilder<?, ?> b) {
+        super(b);
+    }
 }
