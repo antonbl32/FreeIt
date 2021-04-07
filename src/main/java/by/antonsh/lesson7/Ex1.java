@@ -23,16 +23,16 @@ public class Ex1 {
         System.out.println(car);
         car.getMileageTime(2.1);
         System.out.println("---------------------------------------");
-//        CivilAircraft civilAircraft = CivilAircraft.builder().isBusiness(ThreadLocalRandom.current().nextBoolean())
-//                .maxSpeed(ThreadLocalRandom.current().nextDouble(150, 240))
-//                .power(ThreadLocalRandom.current().nextDouble(60, 250))
-//                .weight(ThreadLocalRandom.current().nextDouble(1500, 3000))
-//                .brand(brand[ThreadLocalRandom.current().nextInt(0, 4)])
-//                .passengers(ThreadLocalRandom.current().nextInt(50, 380))
-//                .runwayLength(ThreadLocalRandom.current().nextDouble(1500, 3000))
-//                .wingspan(ThreadLocalRandom.current().nextDouble(1500, 3000)).build();
-//        System.out.println(civilAircraft);
-//        civilAircraft.isOverSitting(ThreadLocalRandom.current().nextInt(50, 380));
+        CivilAircraft civilAircraft = CivilAircraft.builder().isBusiness(ThreadLocalRandom.current().nextBoolean())
+                .maxSpeed(ThreadLocalRandom.current().nextDouble(150, 240))
+                .power(ThreadLocalRandom.current().nextDouble(60, 250))
+                .weight(ThreadLocalRandom.current().nextDouble(1500, 3000))
+                .brand(brand[ThreadLocalRandom.current().nextInt(0, 4)])
+                .passengers(ThreadLocalRandom.current().nextInt(50, 380))
+                .runwayLength(ThreadLocalRandom.current().nextDouble(1500, 3000))
+                .wingspan(ThreadLocalRandom.current().nextDouble(1500, 3000)).build();
+        System.out.println(civilAircraft);
+        civilAircraft.isOverSitting(ThreadLocalRandom.current().nextInt(50, 380));
     }
 }
 
@@ -43,8 +43,6 @@ class Machine {
     private double maxSpeed;
     private double weight;
     private String brand;
-    public DecimalFormat f = new DecimalFormat("##.00");// для округления double до сотых
-
 
     private double convertHPToKW(double hp) {
         return hp * 0.74;
@@ -53,10 +51,10 @@ class Machine {
     @Override
     public String toString() {
         return "\n{" +
-                " Мощность(л\\с): " + f.format(power) +
-                " Мощность(к\\В): " + f.format(convertHPToKW(power)) +
-                ", Максимальная скорость(к\\мч): " + f.format(maxSpeed) +
-                ", Масса(кг): " + f.format(weight) +
+                " Мощность(л\\с): " + power +
+                " Мощность(к\\В): " + convertHPToKW(power) +
+                ", Максимальная скорость(к\\мч): " + maxSpeed +
+                ", Масса(кг): " + weight +
                 ", Марка авто: '" + brand + '\'' +
                 '}';
     }
@@ -68,13 +66,13 @@ class LandTransport extends Machine {
     private int wheels;
     private double gasMileage;
 
-//    @Override
-//    public String toString() {
-//        return "{" +
-//                "Количество колес: " + wheels +
-//                ", Расход топлива в л/100км: " + super.f.format(gasMileage) +
-//                "} " + super.toString();
-//    }
+    @Override
+    public String toString() {
+        return "{" +
+                "Количество колес: " + wheels +
+                ", Расход топлива в л/100км: " + gasMileage +
+                "} " + super.toString();
+    }
 }
 
 @Data
@@ -89,7 +87,7 @@ class Car extends LandTransport {
                 " Марка:" + getBrand() + " расход на 100км: " + getGasMileage()
                 + " \nколичество колес" + getWheels()
                 + " максимальная скорость: " + getMaxSpeed()
-                + " масса: " + this.f.format(getWeight());
+                + " масса: " + getWeight();
     }
 
     /**
@@ -103,9 +101,9 @@ class Car extends LandTransport {
                 " часа, автомобиль " +
                 super.getBrand() +
                 " двигаясь с максимальной скоростью " +
-                super.f.format(super.getMaxSpeed()) +
+                super.getMaxSpeed() +
                 " км/ч израсходует " +
-                super.f.format(super.getMaxSpeed() * time / 100 * super.getGasMileage()) +
+                super.getMaxSpeed() * time / 100 * super.getGasMileage() +
                 " литров топлива");
     }
 }
@@ -115,12 +113,12 @@ class Car extends LandTransport {
 class Track extends LandTransport {
     private double carryingCapacity;
 
-//    @Override
-//    public String toString() {
-//        return "Грузовой транспорт{" +
-//                "Грузоподьемность: " + f.format(carryingCapacity) +
-//                "} " + super.toString();
-//    }
+    @Override
+    public String toString() {
+        return "Грузовой транспорт{" +
+                "Грузоподьемность: " + carryingCapacity +
+                "} " + super.toString();
+    }
 
     /**
      * Метод проверяет применим ли этот транспорт для этого груза
@@ -143,13 +141,13 @@ class AirTransport extends Machine {
     private double wingspan;
     private double runwayLength;
 
-//    @Override
-//    public String toString() {
-//        return " \nВоздушный транспорт{" +
-//                " Размах крыла: " + wingspan +
-//                ", Длина взлетно-посадочной полосы: " + runwayLength +
-//                "} " + super.toString();
-//    }
+    @Override
+    public String toString() {
+        return " \nВоздушный транспорт{" +
+                " Размах крыла: " + wingspan +
+                ", Длина взлетно-посадочной полосы: " + runwayLength +
+                "} " + super.toString();
+    }
 }
 
 @Data
@@ -165,7 +163,7 @@ class CivilAircraft extends AirTransport {
      */
     public void isOverSitting(int passengers) {
         int isOver = Integer.compare(this.passengers, passengers);
-        System.out.println(passengers);
+        System.out.println("в самолет садится: "+passengers+" пассажиров.");
         if (isOver >= 0) {
             System.out.println("Самолет заполнен.");
         } else {
@@ -173,20 +171,20 @@ class CivilAircraft extends AirTransport {
         }
     }
 
-//    @Override
-//    public String toString() {
-//        return "CivilAircraft{" +
-//                "passengers=" + passengers +
-//                ", isBusiness=" + isBusiness +
-//                "} " + super.toString();
-//    }
+    @Override
+    public String toString() {
+        return "CivilAircraft{" +
+                "passengers=" + passengers +
+                ", isBusiness=" + isBusiness +
+                "} " + super.toString();
+    }
 }
 
 @Data
 @SuperBuilder
 class WarPlane extends AirTransport {
     private boolean ejectionSystem;
-    private int numberOfMissiles = 0;
+    private int numberOfMissiles;
 
     @Override
     public String toString() {
@@ -194,5 +192,21 @@ class WarPlane extends AirTransport {
                 " наличие системы катапультирования: " + ejectionSystem +
                 ", количество ракет: " + numberOfMissiles +
                 "} " + super.toString();
+    }
+    public void shoot(){
+        if(numberOfMissiles>0){
+            System.out.println("Ракета пошла…");
+            numberOfMissiles--;
+        }else{
+            System.out.println("Боеприпасы отсутствуют");
+        }
+    }
+
+    public void isEjectionSystem(){
+        if(ejectionSystem){
+            System.out.println("Катапультирование прошло успешно.");
+        }else{
+            System.out.println("У вас нет такой системы...");
+        }
     }
 }
