@@ -1,38 +1,27 @@
 package by.antonsh.lesson7;
 
 import lombok.Data;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
 /*
 Разработать иерархию классов подобную схеме
-Для удобства проверки логично использовать размещение классов в одном файле
-*/
+Все классы разместил в одном файле для более наглядной проверки задания
+ */
 public class Ex1 {
     public static void main(String[] args) {
         String[] brand = {"Audi", "Mercedes", "BMW", "Honda", "Ford"};
-        Car car = Car.builder().brand(brand[ThreadLocalRandom.current().nextInt(0, 4)])
-                .maxSpeed(ThreadLocalRandom.current().nextDouble(100, 240))
-                .power(ThreadLocalRandom.current().nextDouble(60, 250))
-                .weight(ThreadLocalRandom.current().nextDouble(1500, 3000))
-                .gasMileage(ThreadLocalRandom.current().nextDouble(8, 20))
-                .wheels(ThreadLocalRandom.current().nextInt(3, 4)).build();
-        System.out.println(car);
-        car.getMileageTime(2.1);
-        System.out.println("---------------------------------------");
-        CivilAircraft civilAircraft = CivilAircraft.builder().isBusiness(ThreadLocalRandom.current().nextBoolean())
-                .maxSpeed(ThreadLocalRandom.current().nextDouble(150, 240))
-                .power(ThreadLocalRandom.current().nextDouble(60, 250))
-                .weight(ThreadLocalRandom.current().nextDouble(1500, 3000))
+        Car car = Car.builder().numberOfPassengers(ThreadLocalRandom.current().nextInt(1, 8))
                 .brand(brand[ThreadLocalRandom.current().nextInt(0, 4)])
-                .passengers(ThreadLocalRandom.current().nextInt(50, 380))
-                .runwayLength(ThreadLocalRandom.current().nextDouble(1500, 3000))
-                .wingspan(ThreadLocalRandom.current().nextDouble(1500, 3000)).build();
-        System.out.println(civilAircraft);
-        civilAircraft.isOverSitting(ThreadLocalRandom.current().nextInt(50, 380));
+                .gasMileage(ThreadLocalRandom.current().nextDouble(5, 20))
+                .maxSpeed(ThreadLocalRandom.current().nextDouble(120, 240))
+                .power(ThreadLocalRandom.current().nextDouble(80, 380))
+                .weight(ThreadLocalRandom.current().nextDouble(1500, 3100))
+                .wheels(ThreadLocalRandom.current().nextInt(3, 4))
+                .build();
+        System.out.println(car);
+        car.getMealageTime(2.6);
     }
 }
 
@@ -82,20 +71,12 @@ class Car extends LandTransport {
 
     @Override
     public String toString() {
-        return "Легковая машина:" +
+        return "Car{" +
                 "Количество пассажиров: " + numberOfPassengers +
-                " Марка:" + getBrand() + " расход на 100км: " + getGasMileage()
-                + " \nколичество колес" + getWheels()
-                + " максимальная скорость: " + getMaxSpeed()
-                + " масса: " + getWeight();
+                "} " + super.toString();
     }
 
-    /**
-     * Метод проверяет количество топлива требумого для определенного времени в пути
-     *
-     * @param time время в пути
-     */
-    public void getMileageTime(double time) {
+    public void getMealageTime(double time) {
         System.out.println("За время " +
                 time +
                 " часа, автомобиль " +
