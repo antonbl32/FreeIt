@@ -1,8 +1,6 @@
 package by.antonsh.lesson9.clothes.jacket;
 
 
-import by.teachmeskills.clothes.pants.Pants;
-
 public class ChinaJacketImpl implements Jacket {
     @Override
     public void putOn() {

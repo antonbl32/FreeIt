@@ -1,12 +1,13 @@
-package by.teachmeskills.robot;
+package by.antonsh.lesson9.robot;
 
-import by.teachmeskills.robot.hands.SamsungHand;
-import by.teachmeskills.robot.hands.SonyHand;
-import by.teachmeskills.robot.hands.ToshibaHand;
-import by.teachmeskills.robot.heads.SamsungHead;
-import by.teachmeskills.robot.heads.SonyHead;
-import by.teachmeskills.robot.legs.SonyLeg;
-import by.teachmeskills.robot.legs.ToshibaLeg;
+
+import by.antonsh.lesson9.robot.hands.SamsungHand;
+import by.antonsh.lesson9.robot.hands.SonyHand;
+import by.antonsh.lesson9.robot.hands.ToshibaHand;
+import by.antonsh.lesson9.robot.heads.SamsungHead;
+import by.antonsh.lesson9.robot.heads.SonyHead;
+import by.antonsh.lesson9.robot.legs.SonyLeg;
+import by.antonsh.lesson9.robot.legs.ToshibaLeg;
 
 public class Run {
     public static void main(String[] args) {

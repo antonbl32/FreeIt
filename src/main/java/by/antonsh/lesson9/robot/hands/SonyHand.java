@@ -1,6 +1,5 @@
 package by.antonsh.lesson9.robot.hands;
 
-import by.teachmeskills.robot.heads.IHead;
 
 public class SonyHand implements IHand {
     private int price;
