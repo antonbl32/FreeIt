@@ -19,11 +19,18 @@ public class Run {
         У всех роботов вызовите метод action.
         Среди 3-х роботов найдите самого дорогого.
         */
-        Robot r1=new Robot(new SamsungHead(10),new ToshibaHand(5),new SonyLeg(8));
+        Robot r1 = new Robot(new SamsungHead(10), new ToshibaHand(5), new SonyLeg(8));
         r1.action();
-        Robot r2=new Robot(new SonyHead(9),new SamsungHand(5),new SonyLeg(11));
+        Robot r2 = new Robot(new SonyHead(9), new SamsungHand(5), new SonyLeg(11));
         r2.action();
-        Robot r3=new Robot(new SamsungHead(10),new SonyHand(7),new ToshibaLeg(9));
+        Robot r3 = new Robot(new SamsungHead(10), new SonyHand(7), new ToshibaLeg(9));
         r3.action();
+        if (r1.getPrice() > r2.getPrice() && r1.getPrice() > r3.getPrice()) {
+            System.out.println("R1 the most expensive");
+        } else if (r2.getPrice() > r1.getPrice() && r2.getPrice() > r3.getPrice()) {
+            System.out.println("R2 the most expensive");
+        } else {
+            System.out.println("R3 the most expensive or some price equal");
+        }
     }
 }
