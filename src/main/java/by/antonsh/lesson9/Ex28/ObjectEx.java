@@ -3,7 +3,14 @@ package by.antonsh.lesson9.Ex28;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+/*
+Написать класс, который умеет хранить в себе массив любых типов данных.
+Реализовать метод get(int index), который возвращает любой элемент массива по индексу.
+ */
 
+/**
+ * This class create Object array and fill it.
+ */
 public class ObjectEx {
     static Object[] array;
 
@@ -20,6 +27,11 @@ public class ObjectEx {
         return array[index];
     }
 }
+
+/**
+ * This class have a generic arraylist
+ * @param <T> - type of Object
+ */
 class GenericsEx <T>{
     private List<T> list=new ArrayList<>();
 
