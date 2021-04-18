@@ -9,7 +9,7 @@ import java.util.Map;
 public class Ex32 {
     public static void main(String[] args) {
         String text = " Коси траву, коси траву, пока солнце высоко.".toLowerCase();
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
         for (String word : text.trim().replaceAll("[ ,.:!]", "_")
                 .split("_")) {
             if (word.isEmpty() || word == null) {
