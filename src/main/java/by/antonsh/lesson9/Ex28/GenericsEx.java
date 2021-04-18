@@ -9,26 +9,6 @@ import java.util.Scanner;
  */
 
 /**
- * This class create Object array and fill it.
- */
-public class ObjectEx {
-    static Object[] array;
-
-    public static void main(String[] args) {
-        array = new Object[10];
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < 5; i++) {
-            array[i] = sc.next();
-            System.out.println(getItemWithIndex(i));
-        }
-    }
-
-    static Object getItemWithIndex(int index) {
-        return array[index];
-    }
-}
-
-/**
  * This class have a generic arraylist
  * @param <T> - type of Object
  */

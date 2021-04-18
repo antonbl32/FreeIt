@@ -1,6 +1,5 @@
 package by.antonsh.lesson9.robot;
 
-
 import by.antonsh.lesson9.robot.hands.IHand;
 import by.antonsh.lesson9.robot.heads.IHead;
 import by.antonsh.lesson9.robot.legs.ILeg;
@@ -16,7 +15,8 @@ public class Robot implements IRobot {
         this.leg = leg;
     }
 
-    public Robot(){}
+    public Robot() {
+    }
 
     public IHead getHead() {
         return head;
@@ -51,6 +51,7 @@ public class Robot implements IRobot {
 
     /**
      * Get the cost of a robot
+     *
      * @return int
      */
     @Override
@@ -58,7 +59,6 @@ public class Robot implements IRobot {
         int price = head.getPrice() + hand.getPrice() + leg.getPrice();
         return price;
     }
-
 
 
 }
