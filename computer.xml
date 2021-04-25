@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer name="First">
+    <id>1</id>
+    <motherBoard>
+        <brand>Foxconn</brand>
+        <critical>true</critical>
+        <price>95.5</price>
+    </motherBoard>
+    <hdd>
+        <brand>Hitachi</brand>
+        <critical>false</critical>
+        <price>55.0</price>
+    </hdd>
+    <vCard>
+        <brand>Nvideo</brand>
+        <critical>true</critical>
+        <price>255.5</price>
+    </vCard>
+    <price>406.0</price>
+</computer>
