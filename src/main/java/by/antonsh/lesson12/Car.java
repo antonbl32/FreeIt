@@ -16,7 +16,6 @@ public class Car implements Serializable {
 class Runner{
     public static void main(String[] args) throws IOException {
         Car car=new Car("BMW",217.5,37000);
-
         try(FileOutputStream outputStream = new FileOutputStream("car.save");
             ObjectOutputStream objectOutputStream=new ObjectOutputStream(outputStream)){
             objectOutputStream.writeObject(car);
