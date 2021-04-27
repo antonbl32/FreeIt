@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="computers.xsd">
+    <ListOfComputers>
+        <hdd>
+            <brand>Hitachi</brand>
+            <critical>false</critical>
+            <price>55.0</price>
+        </hdd>
+        <id>1</id>
+        <motherBoard>
+            <brand>Foxconn</brand>
+            <critical>true</critical>
+            <price>95.5</price>
+        </motherBoard>
+        <name>First</name>
+        <price>406.0</price>
+        <VCard>
+            <brand>Nvideo</brand>
+            <critical>true</critical>
+            <price>255.5</price>
+        </VCard>
+    </ListOfComputers>
+    <ListOfComputers>
+        <hdd>
+            <brand>Toshiba</brand>
+            <critical>false</critical>
+            <price>61.0</price>
+        </hdd>
+        <id>2</id>
+        <motherBoard>
+            <brand>Malta</brand>
+            <critical>true</critical>
+            <price>91.5</price>
+        </motherBoard>
+        <name>Second</name>
+        <price>368.4</price>
+        <VCard>
+            <brand>ATI</brand>
+            <critical>true</critical>
+            <price>215.9</price>
+        </VCard>
+    </ListOfComputers>
+</computers>
