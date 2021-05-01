@@ -40,6 +40,8 @@ public class Runner {
                 new VCard("ATI", 215.9, true), 0);
         comp2.setAllPrice();
         Computers allComp = new Computers();
+        allComp.setId("1");
+        allComp.setShopName("MaxComp");
         allComp.getList().add(comp1);
         allComp.getList().add(comp2);
         JAXBContext jaxbContext;
