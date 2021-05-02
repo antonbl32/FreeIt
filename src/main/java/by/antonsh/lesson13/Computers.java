@@ -19,4 +19,10 @@ public class Computers {
     private String shopName;
     @XmlElement(name = "ListOfComputers")
     private List<Computer> list=new ArrayList<>();
+    public String getShopName(){
+        if(shopName==null){
+            shopName="Default Value";
+        }
+        return shopName;
+    }
 }
