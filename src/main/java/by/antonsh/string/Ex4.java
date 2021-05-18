@@ -30,11 +30,8 @@ public class Ex4 {
         List<String> listOfSentences = new ArrayList<>();
         listOfSentences.addAll(Arrays.stream(text.split("(?<=[.?!])")).collect(Collectors.toList()));
         System.out.println(listOfSentences);
-
-
         StringBuilder resultToWrite = new StringBuilder();
         for (int i = 0; i < listOfSentences.size(); i++) {
-
             if (TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) >= 3
                     && TextFormatter.getNumberOfWordsInString(listOfSentences.get(i)) <= 5
                     || TextFormatter.isPolychrome(listOfSentences.get(i))) {
@@ -44,10 +41,7 @@ public class Ex4 {
         Files.write(Paths.get(pathOut), Collections.singleton(resultToWrite), new StandardOpenOption[]{StandardOpenOption.CREATE});
         System.out.println("---------------------------------------");
         System.out.println(resultToWrite);
-
     }
-
-
 }
 
 
