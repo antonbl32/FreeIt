@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class Ex2 {
     public static void main(String[] args) {
         String text="Hello my the best friend!";
-        String result=text.replaceAll("e", String.valueOf(text.charAt(0)));
+        String result=text.replaceAll(String.valueOf(text.charAt(2)), String.valueOf(text.charAt(0)));
         System.out.println(result);
 
     }
