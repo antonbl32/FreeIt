@@ -4,7 +4,8 @@ import by.antonsh.mysql.entity.Order;
 import by.antonsh.mysql.service.ItemService;
 import by.antonsh.mysql.service.OrderService;
 
-import java.util.List;
+import java.time.LocalDate;
+
 /*
 ИСПОЛЬЗОВАНИЕ КЛАССОВ И БИБЛИОТЕК3706. Заказ. В БД хранится информация о заказах
 магазина и товарах в них.
@@ -26,10 +27,10 @@ public class Runner {
         System.out.println("Get order by id:");
         System.out.println(orderService.getOrderById(1));
         System.out.println("Get order less 100 and count of item less then 4:");
-        System.out.println(orderService.getOrderLessPriceAndLessItemsOfCount(100,4));
+        System.out.println(orderService.getOrderLessPriceAndLessItemsOfCount(100, 4));
         System.out.println("Get orders which have item with id 1: ");
-        System.out.println(orderService.getOrdersWhichHaveItem(
-                itemService.getItemById(1)));
+        System.out.println(orderService.getOrdersWhichHaveItem(itemService.getItemById(1)));
+        orderService.createOrderTodayItem(new Order());
 
     }
 }

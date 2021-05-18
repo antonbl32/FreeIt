@@ -27,4 +27,10 @@ public class OrderService {
     public List<Integer> getOrderLessPriceAndLessItemsOfCount(int price, int count){
         return orderDAO.getOrderLessPriceAndLessItemsOfCount(price,count);
     }
+    public void createOrderTodayItem(Order order){
+         orderDAO.createOrderTodayItem(order);
+    }
+    public void deleteOrderWithItemsAndCount(Item item, Integer count){
+        orderDAO.deleteOrderWithItemsAndCount(item,count);
+    }
 }

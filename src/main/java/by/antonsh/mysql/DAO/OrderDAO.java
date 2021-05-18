@@ -12,5 +12,7 @@ public interface OrderDAO {
     List<Integer> getOrdersWhichHaveItem(Item item);
     List<Integer> getOrderLessPriceAndLessItemsOfCount(int price, int count);
     List<Integer> getOrderWithoutItemAndGetInDate(Item item, LocalDate localDate);
+    void createOrderTodayItem(Order order);
+    void deleteOrderWithItemsAndCount(Item item,Integer count);
 
 }
