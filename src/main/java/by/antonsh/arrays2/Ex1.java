@@ -12,12 +12,10 @@ public class Ex1 {
         int[] arrayInts;
         arrayInts = random.ints(6, 0, 10).toArray();
         int result=1;
-
         System.out.println(Arrays.toString(arrayInts));
         for (int i = 0; i < arrayInts.length; i++) {
             if (arrayInts[i]!=0  && arrayInts[i] % 3 == 0 ) {
                 result*=arrayInts[i];
-
             }
         }
         System.out.println(result);
@@ -31,10 +29,8 @@ public class Ex1 {
                 secondResult+=arrayInts[i];
                 System.out.print(" "+arrayInts[i]);
                 countN++;
-
         }
         System.out.println();
         System.out.println((double) secondResult/countN);
-
     }
 }
