@@ -12,6 +12,7 @@ public class ItemFromDB {
             item.setName(resultSet.getString("name"));
             item.setDescription(resultSet.getString("desc"));
             item.setPrice(resultSet.getDouble("price"));
+            item.setId(resultSet.getInt("iditem"));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

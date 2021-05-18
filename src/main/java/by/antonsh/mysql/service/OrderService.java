@@ -1,30 +1,30 @@
 package by.antonsh.mysql.service;
 
-import by.antonsh.mysql.configuration.ConnectionDB;
+import by.antonsh.mysql.DAO.OrderDAO;
+import by.antonsh.mysql.DAO.OrderDAOImpl;
 import by.antonsh.mysql.entity.Item;
 import by.antonsh.mysql.entity.Order;
-import by.antonsh.mysql.facade.ItemFromDB;
-import by.antonsh.mysql.facade.OrderFromBD;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
 public class OrderService {
+    private OrderDAO orderDAO = new OrderDAOImpl();
+
     public Order getOrderById(Integer id) {
-        try (Connection conn = ConnectionDB.getDataSource().getConnection()) {
-            PreparedStatement statement = conn.prepareStatement("select * from myorder o right join " +
-                    "items i on i.order_id=o.id and o.id=?");
-            statement.setInt(1, id);
-            ResultSet resultSet = statement.executeQuery();
-            ItemFromDB fromDB = new ItemFromDB();
-            OrderFromBD orderFromBD=new OrderFromBD();
-            Order order=orderFromBD.getOrderFromBD(resultSet);
-            return order;
-        } catch (SQLException | NullPointerException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
+        return orderDAO.getOrderById(id);
+    }
+    public void getPriceForEachOrders(){
+        List<Order> list = getAllOrders();
+        list.stream().forEach(u -> System.out.println("Стоимость заказа №" + u.getId()
+                + " равна " + u.getPriceFromOrder()));
+    }
+    public List<Order> getAllOrders() {
+        return orderDAO.getAllOrders();
+    }
+    public List<Integer> getOrdersWhichHaveItem(Item item){
+        return orderDAO.getOrdersWhichHaveItem(item);
+    }
+    public List<Integer> getOrderLessPriceAndLessItemsOfCount(int price, int count){
+        return orderDAO.getOrderLessPriceAndLessItemsOfCount(price,count);
     }
 }
