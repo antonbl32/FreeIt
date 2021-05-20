@@ -44,7 +44,6 @@ public class Ex4 {
     }
 }
 
-
 class TextFormatter {
     public static int getNumberOfWordsInString(String str) {
         String[] newStr = str.trim().split(" ");
