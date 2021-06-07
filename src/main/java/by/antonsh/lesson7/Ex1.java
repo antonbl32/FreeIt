@@ -1,6 +1,7 @@
 package by.antonsh.lesson7;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -161,7 +162,7 @@ class CivilAircraft extends AirTransport {
     }
 }
 
-@Data
+
 @SuperBuilder
 class WarPlane extends AirTransport {
     private boolean ejectionSystem;
