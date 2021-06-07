@@ -1,10 +1,14 @@
 package by.antonsh.project;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
-@XmlRootElement(name="Author")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Author {
+    @XmlElement(name = "soname")
     private String soname;
+    @XmlElement(name = "nameAuthor")
     private String name;
 
     public Author() {

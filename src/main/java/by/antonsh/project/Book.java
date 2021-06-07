@@ -2,12 +2,13 @@ package by.antonsh.project;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Objects;
-@XmlRootElement(name = "book")
-public class Book implements Serializable {
+
+@XmlAccessorType(XmlAccessType.PROPERTY)
+public class Book {
     public Book() {
     }
 
@@ -27,6 +28,7 @@ public class Book implements Serializable {
         return nameOfBook;
     }
 
+    @XmlElement(name = "nameOfBook")
     public void setNameOfBook(String nameOfBook) {
         this.nameOfBook = nameOfBook;
     }
@@ -35,14 +37,16 @@ public class Book implements Serializable {
         return dateOfBook;
     }
 
+    @XmlElement(name = "dateOfBook")
     public void setDateOfBook(int dateOfBook) throws ParseException {
-        this.dateOfBook =dateOfBook;
+        this.dateOfBook = dateOfBook;
     }
 
     public Author getAuthor() {
         return author;
     }
 
+    @XmlElement(name = "author")
     public void setAuthor(Author author) {
         this.author = author;
     }
@@ -51,6 +55,7 @@ public class Book implements Serializable {
         return genre;
     }
 
+    @XmlElement(name = "genre")
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
@@ -73,7 +78,7 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "\nBook{" +
                 "nameOfBook='" + nameOfBook + '\'' +
                 ", dateOfBook=" + dateOfBook +
                 ", author=" + author +
